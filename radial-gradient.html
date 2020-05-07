@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1, .box2, .box3, .box4{
+            margin: 10px;
+        }
+        .box1{
+            width: 200px;
+            height: 120px;
+            border: 1px solid #000;
+            background-image: radial-gradient(circle 25px at top, transparent 24px, yellow 25px);
+            background-size: 50px;
+        }
+        .box2{
+            position: relative;
+            width: 400px;
+            height: 160px;
+            background-image: radial-gradient(circle at 0px 8px, transparent 6px , red 7px, red 0px), radial-gradient( circle at 199px 8px, transparent 6px, red 6px, red 0px);
+            background-size: 200px 16px;
+            background-repeat: repeat-y;
+            background-position: 0 0, 200px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .box2::before{
+            position: absolute;
+            content: ' ';
+            left: 220px;
+            width: 0;
+            border-left: 1px dashed #fff;
+            top: 0;
+            bottom: 0;
+        }
+        .box3{
+            width: 600px;
+            height: 200px;
+            display: flex;
+            position: relative;
+        }
+        .box3 .left, .box4 .left{
+            flex: 0 0 30%;
+            background-color: #f76260;
+            height: 100%;
+        }
+        .box3 .right, .box4 .right{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .box3::before{
+            position: absolute;
+            content: '';
+            background-image: radial-gradient(circle at 0 10px, white 6px, #f76260 7px);
+            background-size: 6px 20px;
+            width: 6px;
+            top: 0;
+            bottom: 0;
+        }
+        .box4{
+            position: absolute;
+            width: 600px;
+            height: 200px;
+            display: flex;
+            background-image: radial-gradient(circle at 30% 0, white 6px, #f76260 7px, transparent 8px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2">文字</div>
+    <div class="box3">
+        <div class="left"></div>
+        <div class="right">满100减30</div>
+    </div>
+    <div class="box4">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
+<!-- 
+    radial-gradient：(shape size at position, start-color, ..., last-color)
+    background-image:radial-gradient(circle 50px at 50% 50%,red 0%,green 100%,transparent 102%); 
+-->
