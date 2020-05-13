@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @-webkit-keyframes move {
+            from {
+                width: 2px
+            }
+            to {
+                width: 15px;
+            }
+        }
+        .loading::after{
+            display: inline-block;
+            content: '...';
+            overflow: hidden;
+            vertical-align: center;
+            -webkit-animation: move 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">加载中</div>
+</body>
+</html>
