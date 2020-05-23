@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+        }
+        .box input, .box textarea{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        /* 宽度分离 */
+        .parent{
+            width: 100px;
+        }
+        .child{
+            /* 使其具有流动性 */
+            /* display: block; */
+            /* width: 100px; */
+            padding: 10px;
+            border: 1px solid #000;
+            /* box-sizing: border-box; */
+        }
+    </style>
+</head>
+<body>
+    <div class='parent'>
+        <!-- <div class='child'></div> -->
+        <p class='child'></p>
+    </div>
+    <div class="box">
+        <input placeholder="请输入..."/>
+    </div>
+    <div class="box">
+        <textarea></textarea>
+    </div>
+</body>
+</html>
+
+<!-- 
+    box-sizing: 改变元素的盒模型
+    1. 一般可以使用宽度分离的方法代替box-sizing
+    2. box-sizing被发明的初衷：解决替换元素宽度自适应的问题
+    3. 对于非替换元素，如果其display属性值为block，则会具有流动性，宽度由外部尺寸决定，但是替换元素却不受display影响,因此只能通过width：100%来自适应父容器宽度。
+ -->

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            line-height: 420px;
+            background-color: #eeeeee;
+        }
+        .content{
+            /* 类似图片，让line-height420px有作用的对象 */
+            display: inline-block; 
+            line-height: 20px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        /* 近似垂直居中：因为x的中心位置都是在字符内容区域高度中心点的下方，而这个偏差也正是这里上下图片的偏差 */
+        .img-box{
+            line-height: 420px;
+            background-color: #eee;
+            /* 绝对的居中，content area高度是0 绝中心线和中线对齐 */
+            font-size: 0;
+        }
+        .img-box img{
+            vertical-align: middle;
+        }
+        .parent{
+            /* line-height: 20px; */
+            line-height: 60px;
+        }
+        .child{
+            /* line-height: 60px; */ 
+            line-height: 20px;
+        }
+        .test1{
+            background-color: red;
+            /* font-size: 0;
+            line-height:30px */
+            /* line-height: 0;
+            font-size: 30px; */
+        }
+        .test2{
+            line-height:50px;
+            background-color:red;
+            /* font-size: 30px; */
+        }
+        .test3{
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class='test3'>
+        <img src="https://file.40017.cn/shtrain/viproom/viplounge/images/shenzhen_img.png" />
+    </div>
+    <div class='test1'>是line-height而不是文字撑开了div得大小</div>
+    <p class='test2'>单行文字得垂直居中</p>
+    <div class="box">
+        <div class="content">
+            多行元素的垂直居中多行元素的垂直居中多行元素的垂直居中多行元素的垂直居中多行元素的垂直居中
+            多行元素的垂直居中多行元素的垂直居中多行元素的垂直居中多行元素的垂直居中多行元素的垂直居中
+        </div>
+    </div>
+    <div class="img-box">
+        x<img src="https://file.40017.cn/shtrain/viproom/viplounge/images/shenzhen_img.png"/>
+    </div>
+</body>
+</html>
+<!-- 
+    line-height: 指的是一行文字的高度。具体的是指两条基线（字母x的下边缘）的距离。
+    1. CSS中起高度作用的应该就是height以及line-height，如果一个标签没有定义height属性，那么其最终表现高度一定由line-height起作用。
+    2. 利用行高来实现垂直居中。
+        1. 单行文字得近似垂直居中: 半行距 = (line-height - font-size) / 2
+        2. 多行文字得垂直居中: 高度不固定的多行文字垂直居中吃用padding就可以。那么如果是高度固定的则使用line-height垂直居中
+    3. line-height属性值：
+        数值：1.5  (line-height * font-size)
+        百分比： 150% （line-height * font-size）
+        长度值： 15px
+        这三者的继承细节有差别：如果使用数值作为 line-height 的属性值，那么所有的子元素继承的都是这个值；但是，如果使用百分比值或者长度值作为属性值，那么所有的子元素继承的是最终的计算值。
+    4. 无论内联元素 line-height 如何设置，最终父级元素的高度都是由数值大的那个 line-height 决定的。（幽灵空白节点）
+ -->
+ <!-- 
+     vertical-align 与 line-height 的亲密关系 （都是基于HTML5）
+     1. vertical-align 的百分比就是基于 line-height 的
+     2. 图片距离底部的三像素就是vertical-align和line-height共同作用的结果
+        解决方案：
+            设置图片 display:block (让vertical-align失效，vertical-align作用的前提：：只能应用于内联元素以及 display 值为 table-cell 的元素。) 
+            vertical-align: bottom 
+            div{line-height: 5px} 
+        因为这个两个共同作用，所以我们可以借助这个实现任意尺寸图片（或者内联块状化的多行文字）的垂直居中的效果。
+  -->
+
+ <!-- 
+     幽灵空白节点：在HTML5文档声明中，内联元素（外盒子为inline的一类元素）的所有解析和渲染表现就如同每个行框盒子的前面有一个“空白节点”一样。
+     这个空白节点永远透明，不占据任何宽度，看不见也无法通过脚本获取。
+  -->

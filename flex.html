@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            width: 200px;
+            background-color: #eeeeee;
+        }
+        .fixed{
+            /* width: 100px; */
+            flex: 0 0 100px;
+            background-color: red;
+        }
+        .box1{
+            width: 300px;
+            height: 100px;
+            background: blue;
+            display: flex;
+        }
+        .box1 div{
+            flex: 0 0 200px;
+            max-width: 100px;
+            word-break: break-all;
+        }
+
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <div class='fixed'>固定宽度</div>
+        <div>不定义宽度内容区域不定义宽度内容区域不定义宽度内容区域不定义宽度内容区域不定义宽度内容区域不定义宽度内容区域不定义宽度内容区域</div>
+    </div>
+
+    <div class='box1'>
+        <div></div>
+        <div></div>
+        <div>kahdkjahdkad</div>
+    </div>
+</body>
+</html>
+
+<!-- 
+    flex: flex-grow flex-shrink flex-basis 的缩写
+    默认： flex: 0 1 auto  也就说明，如果空间不足，该项目将缩小，应该设置 flex-shrink:0
+    flex: none => flex: 0 0 auto
+    flex: auto => flex: 1 1 auto
+    flex: 1    => flex: 1 1 0%
+
+    flex-basis
+    1. felx-basis: 作用在content-box上和width是一样的
+
+    flex-basis 与 width的关系：
+    1. 在flex布局中，子项设置width是没有直接效果的，我们看到的width有效果，其实是flex-basis的作用。
+    2. flex-basis的默认值是auto。指的是子项的基本尺寸根据其自身的尺寸决定,而这个自身尺寸与width有关.
+    3. 当指定一个flex-basis值得时候，width就会被忽略
+    4. min-width和max-width会限制flex-basis得大小
+
+
+        
+ -->

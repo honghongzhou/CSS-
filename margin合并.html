@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            background-color: red;
+            /* overflow: hidden;  //解决方案 让父级元素块状格式化 */
+        }
+        .box p {
+            margin-top: 10px;
+        }
+        .parent{
+            overflow: hidden;
+        }
+        .child{
+            margin: 10px 0;
+        }
+        .father{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .son{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color:red;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class='box' id='box'>
+        <p>子元素</p>
+    </div>
+    <!-- 空块级元素的合并 -->
+    <div class="parent">
+        <p class="child"></p>
+    </div>
+
+    <!-- margin: auto -->
+    <div class='father'>
+        <div class='son'>margin:auto 垂直居中</div>
+    </div>
+</body>
+</html>
+<!-- 
+    这里出现一个常见的问题：当子元素使用margin-top的时候，父元素也开始下移动
+    原因：父子margin合并
+    解决方案：
+    对于margin-top(margin-bottom)合并
+        1. 父元素设置为块状格式化上下文元素
+        2. 父元素设置border-top(border-bottom)值
+        3. 父元素设置padding-top(padding-bottom)值
+        4. 父元素和第一个(最后一个)子元素之间添加内联元素进行分隔
+ -->
+ <!-- 
+     margin:
+     1. margin的百分比无论是水平方向还是垂直方向都是相对于宽度计算的。
+     2. margin合并：块级元素的上外边距和下外边距有时会合并为单个边距。
+        块级元素：但不包括浮动和绝对定位元素
+        只发生在垂直方向
+    3. margin合并的三种场景
+        1. 相领兄弟元素margin合并
+        2. 父元素和第一个或者最后一个子元素
+        3. 空块级元素的margin合并
+    4. 合并规则
+        1. 正正取大值
+        2. 正负值相加
+        3. 负负取最负数
+    5. margin: auto 实现绝对定位元素的居中
+
+
+  -->
