@@ -19,7 +19,7 @@
             position: relative;
             width: 400px;
             height: 160px;
-            background-image: radial-gradient(circle at 0px 8px, transparent 6px , red 7px, red 0px), radial-gradient( circle at 199px 8px, transparent 6px, red 6px, red 0px);
+            background-image: radial-gradient(circle at 0px 8px, transparent 6px , red 7px), radial-gradient( circle at 199px 8px, transparent 6px, red 6px);
             background-size: 200px 16px;
             background-repeat: repeat-y;
             background-position: 0 0, 200px 0;
@@ -69,7 +69,15 @@
             width: 600px;
             height: 200px;
             display: flex;
-            background-image: radial-gradient(circle at 30% 0, white 6px, #f76260 7px, transparent 8px);
+            background-image: radial-gradient(circle at 30% 0, white 7px,transparent 8px), radial-gradient(circle at 30% 100%, white 7px, transparent 8px );
+        }
+        .left1{
+            z-index: -1;
+        }
+        .right1{
+            border: none !important;
+            background-color: yellow;
+            z-index: -1
         }
     </style>
 </head>
@@ -81,8 +89,8 @@
         <div class="right">满100减30</div>
     </div>
     <div class="box4">
-        <div class="left"></div>
-        <div class="right"></div>
+        <div class="left left1">left</div>
+        <div class="right right1">right</div>
     </div>
 </body>
 </html>
