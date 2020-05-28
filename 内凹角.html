@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            /* outline: 2px solid; */
+            max-width: 15em;
+            min-height: 10em;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .box::before{
+            position: absolute;
+            content: '';
+            /* box-shadow: 0 0 7px #b53;         */
+            box-shadow: 0 0 0 300px red;
+            /* background: #95a;   */
+            padding: 40px;
+            border-radius: 50%;
+            margin: -40px;
+            z-index: -1;
+        }
+        .box p {
+            text-align: center;
+        }
+        .box1{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .box1 div{
+            flex: 0 0 40%;
+            height: 200px;
+            margin: 20px;
+            border-radius: 10px;
+            /* background-color: red; */
+            /* outline: 2px solid; */
+        }
+        .part1, .part2, .part3, .part4{
+            position: relative;
+            overflow: hidden;
+        }
+        .part1::before, .part2::before, .part3::before, .part4::before{
+            position: absolute;
+            content: "";
+            padding: 40px;
+            margin: -40px;
+            /* background-color: yellow; */
+            border-radius: 50%;
+            z-index: -1;
+            box-shadow: 0 0 0 1000px red;
+        }
+        .part1::before{
+            right: 0;
+            bottom: 0;
+        }
+        .part2::before{
+            left: 0;
+            bottom: 0;
+        }
+        .part3::before{
+            top: 0;
+            right: 0;
+        }
+        .part4::before{
+            top: 0;
+            left: 0;
+        }
+        .box2{
+            width: 400px;
+            height: 200px;
+            background-color: red;
+            background-image: radial-gradient(circle at 0 0, #ffff 20px, transparent 21px),
+                                radial-gradient(circle at 100% 0, #fff 20px, transparent 21px),
+                                radial-gradient(circle at 0 100%, #fff 20px, transparent 21px),
+                                radial-gradient(circle at 100% 100%, #fff 20px, transparent 21px)
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="box">
+            <p>title</p>
+            <div>内容内容内容内容内容内容内容内容</div>
+        </div>
+    </div>
+
+    <div class="box1">
+        <div class="part1"></div>
+        <div class="part2"></div>
+        <div class="part3"></div>
+        <div class="part4"></div>
+    </div>
+
+    <div class="box2"></div>
+</body>
+</html>
