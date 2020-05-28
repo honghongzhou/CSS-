@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            margin: 100px;
+        }
+        .box1, .box2, .box3, .box4{
+            width: 120px;
+            height: 80px;
+            background-color: red;
+            position: relative;
+            margin: 100px;
+            border-radius: 10px;
+        }
+        .box1::before, .box2::before, .box3::before, .box4::before{
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+        }
+        .box1::before{
+            top: 50%;
+            transform: translateY(-50%);
+            right: 100%;
+            border-top: 13px solid transparent;
+            border-right: 26px solid red;
+            border-bottom: 13px solid transparent;
+        }
+        .box2::before{
+            left: 50%;
+            transform: translatex(-50%);
+            bottom: 100%;
+            border-left: 13px solid transparent;
+            border-right: 13px solid transparent;
+            border-bottom: 26px solid red;
+        }
+        .box3::before{
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 13px solid transparent;
+            border-bottom: 13px solid transparent;
+            border-left: 26px solid red;
+        }
+        .box4::before{
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            border-left: 13px solid transparent;
+            border-right: 13px solid transparent;
+            border-top: 26px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+</body>
+</html>
